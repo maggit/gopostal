@@ -4,10 +4,9 @@
 ![Gopher](https://golang.org/doc/gopher/frontpage.png)
 
 
-
 ## The problem
 
-We have a ruby application that schedules email delivery jobs using sidekiq, the idea is to process this emails using a go-based background worker.
+You have a ruby application that schedules email delivery jobs using sidekiq, the idea is to process this emails using a go-based background worker. Also, you would like to be able to change between different email providers as need it.
 
 ### Getting Started
 
@@ -60,7 +59,7 @@ Test email delivery:
 * Complete examples
 * Write tests
 * Add Sendgrid support
-* Add Amazon AWS support (https://github.com/nathanwinther/go-awsses, https://github.com/sourcegraph/go-ses)
+* Add Amazon AWS support (https://github.com/sourcegraph/go-ses)
 
 
 ## LICENSE
