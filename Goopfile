@@ -1,0 +1,5 @@
+github.com/jrallison/go-workers #365a7885561f92afb9155dbc81e642fe875c94cd
+github.com/jinzhu/gorm
+github.com/lib/pq
+github.com/Sirupsen/logrus
+github.com/mailgun/mailgun-go
