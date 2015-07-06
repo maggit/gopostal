@@ -16,7 +16,7 @@ You have a ruby application that schedules email delivery jobs using sidekiq, th
 
 3. Build worker `goop go build worker.go`
 
-4. Run the worker `./worker -queues=hello`
+4. Run the worker `./worker -queues=sendemail`
 
 
 ### Libraries Used
@@ -27,13 +27,38 @@ You have a ruby application that schedules email delivery jobs using sidekiq, th
 
 
 ## Examples
-*First, you need the following env variables:*
+**First, you need the following env variables:**
 
 ` MAILGUN_DOMAIN `
 
 ` MAILGUN_API_KEY `
 
-### Run the Playground
+` REDIS_NAMESPACE `
+
+` REDIS_SERVER `
+
+` REDIS_DB `
+
+` REDIS_POOL `
+
+` REDIS_PWD `
+
+
+
+**Schedule the job in rails:**
+
+` SendEmail.perform_async("from@email.com", "to@email.com", "SUBJECT", "EMAIL IN TEXT", "https://s3.amazonaws.com/goemail-tests/email.html") `
+
+
+**Run the go worker and process the job**
+
+` goop go run worker.go send_email.go `
+
+
+
+
+
+## Run the Playground
 Test email delivery:
 
 `goop go run playground.go`
@@ -55,11 +80,11 @@ Test email delivery:
 ` TEST_EMAIL_URL `
 
 ## TODO
+* Finish up mail interface
+* Move send_email to use the mail interface
 * Add send by batch support (needs to connect to db)
-* Complete examples
 * Write tests
-* Add Sendgrid support
-* Add Amazon AWS support (https://github.com/sourcegraph/go-ses)
+
 
 
 ## LICENSE
