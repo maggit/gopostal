@@ -8,6 +8,13 @@
 
 You have a ruby application that schedules email delivery jobs using sidekiq, the idea is to process this emails using a go-based background worker. Also, you would like to be able to change between different email providers as need it.
 
+**Email Providers:**
+
+ 
+* Mailgun
+* AWS SES
+* Sendgrid
+
 ### Getting Started
 
 1. Install Goop from outside the proejct: `go get github.com/nitrous-io/goop`
@@ -50,7 +57,7 @@ You have a ruby application that schedules email delivery jobs using sidekiq, th
 ` SendEmail.perform_async("from@email.com", "to@email.com", "SUBJECT", "EMAIL IN TEXT", "https://s3.amazonaws.com/goemail-tests/email.html") `
 
 
-**Run the go worker and process the job**
+**Run the go worker and process the job to test:**
 
 ` goop go run worker.go send_email.go `
 
@@ -78,6 +85,7 @@ Test email delivery:
 ` TEST_TO `
 
 ` TEST_EMAIL_URL `
+
 
 ## TODO
 * Finish up mail interface
