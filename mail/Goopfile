@@ -1,0 +1,4 @@
+github.com/Sirupsen/logrus
+github.com/mailgun/mailgun-go
+github.com/sendgrid/sendgrid-go
+github.com/sourcegraph/go-ses

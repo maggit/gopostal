@@ -4,13 +4,13 @@
 ![Gopher](https://golang.org/doc/gopher/frontpage.png)
 
 
-## The problem
+## The Problem
 
 You have a ruby application that schedules email delivery jobs using sidekiq, the idea is to process this emails using a go-based background worker. Also, you would like to be able to change between different email providers as need it.
 
 **Email Providers:**
 
- 
+
 * Mailgun
 * AWS SES
 * Sendgrid
@@ -52,7 +52,7 @@ You have a ruby application that schedules email delivery jobs using sidekiq, th
 
 
 
-**Schedule the job in rails:**
+**Schedule the job in Rails:**
 
 ` SendEmail.perform_async("from@email.com", "to@email.com", "SUBJECT", "EMAIL IN TEXT", "https://s3.amazonaws.com/goemail-tests/email.html") `
 

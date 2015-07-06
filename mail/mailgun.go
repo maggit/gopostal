@@ -19,7 +19,7 @@ func MailgunMailer() EmailProvider {
 
 func (p *mailgunProvider) Send(e Email) error {
 
-	msg := mailgun.NewMessage(e.From, e.Subject, e.Content, e.To)
+	msg := mailgun.NewMessage(e.From, e.Subject, e.Content, e.To...)
 
 	if len(e.ContentHTML) > 0 {
 		msg.SetHtml(e.ContentHTML)

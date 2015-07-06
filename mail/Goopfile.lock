@@ -1,13 +1,8 @@
-github.com/Sirupsen/logrus #ab7e46ea22bd379e660230844f96d20f1dabc21a
-github.com/bitly/go-simplejson #18db6e68d8fd9cbf2e8ebe4c81a78b96fd9bf05a
+github.com/Sirupsen/logrus #c79ccaf8c2b6e7361c430b45aae6891fca8ff729
 github.com/bugsnag/bugsnag-go #13fd6b8acda029830ef9904df6b63be0a83369d0
 github.com/bugsnag/osext #0dd3f918b21bec95ace9dc86c7e70266cfc5c702
 github.com/bugsnag/panicwrap #e5f9854865b9778a45169fc249e99e338d4d6f27
-github.com/garyburd/redigo #a47585eaae68b1d14b02940d2af1b9194f3caa9c
 github.com/getsentry/raven-go #b4cfeb65c7ac54358cf22498a85588836c50e159
-github.com/jinzhu/gorm #5663048f137b961f9b1bac6a10227096aa36b0bf
-github.com/jrallison/go-workers #365a7885561f92afb9155dbc81e642fe875c94cd
-github.com/lib/pq #dc50b6ad2d3ee836442cf3389009c7cd1e64bb43
 github.com/mailgun/mailgun-go #9578dc67692294bb7e2a6f4b15dd18c97af19440
 github.com/mbanzon/simplehttp #04c542e7ac706a25820090f274ea6a4f39a63326
 github.com/sendgrid/sendgrid-go #186c04acda510e050536deda27d578d80afe775d

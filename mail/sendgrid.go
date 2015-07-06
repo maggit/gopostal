@@ -6,25 +6,23 @@ import (
 )
 
 type sendgridProvider struct {
-	mg mailgun.Mailgun
+	message string
 }
 
 func SendgridMailer() EmailProvider {
 
 	return &sendgridProvider{
-		sg: sendgrid.NewSendGridClient(os.Getenv("SENDGRID_USER"), os.Getenv("SENDGRID_KEY")),
+		message: "start sendgrid",
 	}
-
 }
 
-func (p *sendgridProvider) Send(e Email) error {
-
+func (m *sendgridProvider) Send(e Email) error {
+	sg := sendgrid.NewSendGridClient(os.Getenv("SENDGRID_USER"), os.Getenv("SENDGRID_KEY"))
 	msg := sendgrid.NewMail()
-	msg.AddTo(e.To)
+	msg.AddTos(e.To)
 	msg.SetSubject(e.Subject)
 	msg.SetHTML(e.ContentHTML)
 	msg.SetFrom(e.From)
-
-	_, err := p.sg.Send(msg)
+	err := sg.Send(msg)
 	return err
 }

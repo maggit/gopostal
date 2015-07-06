@@ -1,7 +1,6 @@
 package mail
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"os"
 )
 
@@ -10,7 +9,7 @@ var provider EmailProvider
 func init() {
 	switch os.Getenv("EMAIL_PROVIDER") {
 	case "mailgun":
-		provider = MaigunMailer()
+		provider = MailgunMailer()
 	case "sendgrid":
 		provider = SendgridMailer()
 	case "AWS_SES":
@@ -31,8 +30,5 @@ type EmailProvider interface {
 }
 
 func Send(m Email) error {
-	if provider == nil {
-		return log.Error("No email provider")
-	}
 	return provider.Send(m)
 }

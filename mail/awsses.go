@@ -1,18 +1,19 @@
 package mail
 
 import (
+	log "github.com/Sirupsen/logrus"
 	"github.com/sourcegraph/go-ses"
 	"os"
 )
 
-type awssesProvider struct {
-	mg awsses.Mailgun
+type awssesConfig struct {
+	amazon ses.Config
 }
 
 func AwsSesMailer() EmailProvider {
 	// EnvConfig takes the access key ID and secret access key values from the environment variables
 	// $AWS_ACCESS_KEY_ID and $AWS_SECRET_KEY, respectively.
-	return &awssesProvider{
+	return &awssesConfig{
 		amazon: ses.Config{
 			Endpoint:        os.Getenv("AWS_END_POINT"),
 			AccessKeyID:     os.Getenv("AWS_ACCESS_KEY_ID"),
@@ -21,8 +22,10 @@ func AwsSesMailer() EmailProvider {
 	}
 }
 
-func (p *awssesProvider) Send(e Email) error {
-	_, err := amazon.SendEmail(e.From, e.To, e.Subject, e.Content, e.ContentHTML)
+func (p *awssesConfig) Send(e Email) error {
+	AMZConfig := p.amazon
+	// This doesn't allow to send email to an array of recipients
+	_, err := AMZConfig.SendEmailHTML(e.From, e.To[0], e.Subject, e.Content, e.ContentHTML)
 	if err != nil {
 		log.Error("Error sending email: %s\n", err)
 	}
