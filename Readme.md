@@ -88,8 +88,8 @@ Test email delivery:
 
 
 ## TODO
-* Finish up mail interface
-* Move send_email to use the mail interface
+* Finish up mail library
+* Move send_email to use the mail library
 * Add send by batch support (needs to connect to db)
 * Write tests
 
